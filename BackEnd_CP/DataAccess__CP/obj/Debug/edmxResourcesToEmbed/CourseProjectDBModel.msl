@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectDBModelContainer" CdmEntityContainer="CourseProjectDBEntities">
+    <EntitySetMapping Name="CreditCard">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.CreditCard">
+        <MappingFragment StoreEntitySet="CreditCard">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="finish_date" ColumnName="finish_date" />
+          <ScalarProperty Name="CVV" ColumnName="CVV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drone">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.Drone">
+        <MappingFragment StoreEntitySet="Drone">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="length" ColumnName="length" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParkingPlace">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.ParkingPlace">
+        <MappingFragment StoreEntitySet="ParkingPlace">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="max_height" ColumnName="max_height" />
+          <ScalarProperty Name="max_wigth" ColumnName="max_wigth" />
+          <ScalarProperty Name="max_length" ColumnName="max_length" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="z" ColumnName="z" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParkingHistory">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.ParkingHistory">
+        <MappingFragment StoreEntitySet="ParkingHistory">
+          <ScalarProperty Name="parking_id" ColumnName="parking_id" />
+          <ScalarProperty Name="drone_id" ColumnName="drone_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time_from" ColumnName="time_from" />
+          <ScalarProperty Name="time_to" ColumnName="time_to" />
+          <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParkingPayment">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.ParkingPayment">
+        <MappingFragment StoreEntitySet="ParkingPayment">
+          <ScalarProperty Name="parking_id" ColumnName="parking_id" />
+          <ScalarProperty Name="payment_per_time_unit" ColumnName="payment_per_time_unit" />
+          <ScalarProperty Name="time_unit" ColumnName="time_unit" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInRole">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.UserInRole">
+        <MappingFragment StoreEntitySet="UserInRole">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersCard">
+      <EntityTypeMapping TypeName="CourseProjectDBModel.UsersCard">
+        <MappingFragment StoreEntitySet="UsersCard">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="card_id" ColumnName="card_id" />
+          <ScalarProperty Name="purpose" ColumnName="purpose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ParkingOwner" TypeName="CourseProjectDBModel.ParkingOwner" StoreEntitySet="ParkingOwner">
+      <EndProperty Name="ParkingPlace">
+        <ScalarProperty Name="id" ColumnName="parking_id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsersDrone" TypeName="CourseProjectDBModel.UsersDrone" StoreEntitySet="UsersDrone">
+      <EndProperty Name="Drone">
+        <ScalarProperty Name="id" ColumnName="drone_id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

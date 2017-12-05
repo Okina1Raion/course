@@ -1,0 +1,13 @@
+C:\Users\Aleksandr\source\repos\BackEnd_CP\Helpers_CP\bin\Debug\Helpers_CP.exe.config
+C:\Users\Aleksandr\source\repos\BackEnd_CP\Helpers_CP\bin\Debug\Helpers_CP.exe
+C:\Users\Aleksandr\source\repos\BackEnd_CP\Helpers_CP\bin\Debug\Helpers_CP.pdb
+C:\Users\Aleksandr\source\repos\BackEnd_CP\Helpers_CP\obj\Debug\Helpers_CP.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandr\source\repos\BackEnd_CP\Helpers_CP\obj\Debug\Helpers_CP.exe
+C:\Users\Aleksandr\source\repos\BackEnd_CP\Helpers_CP\obj\Debug\Helpers_CP.pdb
+C:\Users\Aleksandr\source\repos\курсач\BackEnd_CP\Helpers_CP\bin\Debug\Helpers_CP.exe.config
+C:\Users\Aleksandr\source\repos\курсач\BackEnd_CP\Helpers_CP\bin\Debug\Helpers_CP.exe
+C:\Users\Aleksandr\source\repos\курсач\BackEnd_CP\Helpers_CP\bin\Debug\Helpers_CP.pdb
+C:\Users\Aleksandr\source\repos\курсач\BackEnd_CP\Helpers_CP\obj\Debug\Helpers_CP.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandr\source\repos\курсач\BackEnd_CP\Helpers_CP\obj\Debug\Helpers_CP.exe
+C:\Users\Aleksandr\source\repos\курсач\BackEnd_CP\Helpers_CP\obj\Debug\Helpers_CP.pdb
+C:\Users\Aleksandr\source\repos\курсач\BackEnd_CP\Helpers_CP\obj\Debug\Helpers_CP.csprojResolveAssemblyReference.cache

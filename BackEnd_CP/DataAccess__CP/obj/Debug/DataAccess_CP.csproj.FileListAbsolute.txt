@@ -1,0 +1,2 @@
+C:\Users\Aleksandr\source\repos\BackEnd_CP\DataAccess_CP\obj\Debug\DataAccess_CP.csprojResolveAssemblyReference.cache
+C:\Users\Aleksandr\source\repos\BackEnd_CP\DataAccess_CP\obj\Debug\DataAccess_CP.csproj.CoreCompileInputs.cache

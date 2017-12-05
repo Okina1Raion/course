@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CourseProjectDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CreditCard">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="number" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="finish_date" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="CVV" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Drone">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="height" Type="real" />
+    <Property Name="width" Type="real" />
+    <Property Name="length" Type="real" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CourseProjectDB.dbo.ParkingHistory" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ParkingHistory">
+    <Key>
+      <PropertyRef Name="parking_id" />
+      <PropertyRef Name="drone_id" />
+      <PropertyRef Name="date" />
+      <PropertyRef Name="total_cost" />
+    </Key>
+    <Property Name="parking_id" Type="int" Nullable="false" />
+    <Property Name="drone_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="time_from" Type="time" Precision="7" />
+    <Property Name="time_to" Type="time" Precision="7" />
+    <Property Name="total_cost" Type="real" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CourseProjectDB.dbo.ParkingOwner" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ParkingOwner">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="parking_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="parking_id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CourseProjectDB.dbo.ParkingPayment" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ParkingPayment">
+    <Key>
+      <PropertyRef Name="parking_id" />
+      <PropertyRef Name="payment_per_time_unit" />
+      <PropertyRef Name="time_unit" />
+      <PropertyRef Name="currency" />
+    </Key>
+    <Property Name="parking_id" Type="int" Nullable="false" />
+    <Property Name="payment_per_time_unit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="time_unit" Type="int" Nullable="false" />
+    <Property Name="currency" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParkingPlace">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="max_height" Type="real" />
+    <Property Name="max_wigth" Type="real" />
+    <Property Name="max_length" Type="real" />
+    <Property Name="x" Type="real" Nullable="false" />
+    <Property Name="y" Type="real" Nullable="false" />
+    <Property Name="z" Type="real" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CourseProjectDB.dbo.UserInRole" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="UserInRole">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="role" />
+      <PropertyRef Name="isActive" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="role" Type="int" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CourseProjectDB.dbo.UsersCard" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="UsersCard">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="card_id" />
+      <PropertyRef Name="purpose" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="card_id" Type="int" Nullable="false" />
+    <Property Name="purpose" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "CourseProjectDB.dbo.UsersDrone" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="UsersDrone">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="drone_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="drone_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ParkingHistory_Drone">
+    <End Role="Drone" Type="Self.Drone" Multiplicity="1" />
+    <End Role="ParkingHistory" Type="Self.ParkingHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drone">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ParkingHistory">
+        <PropertyRef Name="drone_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingHistory_ParkingPlace">
+    <End Role="ParkingPlace" Type="Self.ParkingPlace" Multiplicity="1" />
+    <End Role="ParkingHistory" Type="Self.ParkingHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingPlace">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ParkingHistory">
+        <PropertyRef Name="parking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingOwner_ParkingPlace">
+    <End Role="ParkingPlace" Type="Self.ParkingPlace" Multiplicity="1" />
+    <End Role="ParkingOwner" Type="Self.ParkingOwner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingPlace">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ParkingOwner">
+        <PropertyRef Name="parking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingOwner_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ParkingOwner" Type="Self.ParkingOwner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ParkingOwner">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingPayment_ParkingPlace">
+    <End Role="ParkingPlace" Type="Self.ParkingPlace" Multiplicity="1" />
+    <End Role="ParkingPayment" Type="Self.ParkingPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParkingPlace">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ParkingPayment">
+        <PropertyRef Name="parking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInRole_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserInRole" Type="Self.UserInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserInRole">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersCard_CreditCard">
+    <End Role="CreditCard" Type="Self.CreditCard" Multiplicity="1" />
+    <End Role="UsersCard" Type="Self.UsersCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreditCard">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsersCard">
+        <PropertyRef Name="card_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersCard_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UsersCard" Type="Self.UsersCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsersCard">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDrone_Drone">
+    <End Role="Drone" Type="Self.Drone" Multiplicity="1" />
+    <End Role="UsersDrone" Type="Self.UsersDrone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drone">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsersDrone">
+        <PropertyRef Name="drone_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersDrone_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UsersDrone" Type="Self.UsersDrone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UsersDrone">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CourseProjectDBModelContainer">
+    <EntitySet Name="CreditCard" EntityType="Self.CreditCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Drone" EntityType="Self.Drone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParkingPlace" EntityType="Self.ParkingPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParkingHistory" EntityType="Self.ParkingHistory" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ParkingHistory].[parking_id] AS [parking_id], 
+    [ParkingHistory].[drone_id] AS [drone_id], 
+    [ParkingHistory].[date] AS [date], 
+    [ParkingHistory].[time_from] AS [time_from], 
+    [ParkingHistory].[time_to] AS [time_to], 
+    [ParkingHistory].[total_cost] AS [total_cost]
+    FROM [dbo].[ParkingHistory] AS [ParkingHistory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ParkingOwner" EntityType="Self.ParkingOwner" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ParkingOwner].[user_id] AS [user_id], 
+    [ParkingOwner].[parking_id] AS [parking_id]
+    FROM [dbo].[ParkingOwner] AS [ParkingOwner]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ParkingPayment" EntityType="Self.ParkingPayment" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ParkingPayment].[parking_id] AS [parking_id], 
+    [ParkingPayment].[payment_per_time_unit] AS [payment_per_time_unit], 
+    [ParkingPayment].[time_unit] AS [time_unit], 
+    [ParkingPayment].[currency] AS [currency]
+    FROM [dbo].[ParkingPayment] AS [ParkingPayment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UserInRole" EntityType="Self.UserInRole" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserInRole].[user_id] AS [user_id], 
+    [UserInRole].[role] AS [role], 
+    [UserInRole].[isActive] AS [isActive]
+    FROM [dbo].[UserInRole] AS [UserInRole]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsersCard" EntityType="Self.UsersCard" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsersCard].[user_id] AS [user_id], 
+    [UsersCard].[card_id] AS [card_id], 
+    [UsersCard].[purpose] AS [purpose]
+    FROM [dbo].[UsersCard] AS [UsersCard]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsersDrone" EntityType="Self.UsersDrone" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsersDrone].[user_id] AS [user_id], 
+    [UsersDrone].[drone_id] AS [drone_id]
+    FROM [dbo].[UsersDrone] AS [UsersDrone]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ParkingHistory_Drone" Association="Self.FK_ParkingHistory_Drone">
+      <End Role="Drone" EntitySet="Drone" />
+      <End Role="ParkingHistory" EntitySet="ParkingHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingHistory_ParkingPlace" Association="Self.FK_ParkingHistory_ParkingPlace">
+      <End Role="ParkingPlace" EntitySet="ParkingPlace" />
+      <End Role="ParkingHistory" EntitySet="ParkingHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingOwner_ParkingPlace" Association="Self.FK_ParkingOwner_ParkingPlace">
+      <End Role="ParkingPlace" EntitySet="ParkingPlace" />
+      <End Role="ParkingOwner" EntitySet="ParkingOwner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingOwner_User" Association="Self.FK_ParkingOwner_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ParkingOwner" EntitySet="ParkingOwner" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingPayment_ParkingPlace" Association="Self.FK_ParkingPayment_ParkingPlace">
+      <End Role="ParkingPlace" EntitySet="ParkingPlace" />
+      <End Role="ParkingPayment" EntitySet="ParkingPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInRole_User" Association="Self.FK_UserInRole_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserInRole" EntitySet="UserInRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersCard_CreditCard" Association="Self.FK_UsersCard_CreditCard">
+      <End Role="CreditCard" EntitySet="CreditCard" />
+      <End Role="UsersCard" EntitySet="UsersCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersCard_User" Association="Self.FK_UsersCard_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UsersCard" EntitySet="UsersCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDrone_Drone" Association="Self.FK_UsersDrone_Drone">
+      <End Role="Drone" EntitySet="Drone" />
+      <End Role="UsersDrone" EntitySet="UsersDrone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersDrone_User" Association="Self.FK_UsersDrone_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UsersDrone" EntitySet="UsersDrone" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
